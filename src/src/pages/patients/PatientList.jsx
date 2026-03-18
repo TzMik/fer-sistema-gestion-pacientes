@@ -112,7 +112,8 @@ export default function PatientList() {
                 <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Paciente</th>
                 <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Nacimiento</th>
                 <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Facturación</th>
-                <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Balance</th>
+                <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Precio</th>
+                <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Saldo</th>
                 <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Acciones</th>
               </tr>
             </thead>
@@ -174,6 +175,11 @@ export default function PatientList() {
                       ) : (
                         <span className="text-slate-400 text-xs">No requiere</span>
                       )}
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="text-slate-600 font-bold text-sm">
+                        ${Number(patient.custom_price || 700).toFixed(2)}
+                      </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className={`flex items-center gap-1.5 font-bold text-sm ${patient.credit_balance >= 0 ? 'text-green-600' : 'text-red-600'}`}>

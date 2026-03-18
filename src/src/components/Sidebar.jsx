@@ -14,7 +14,6 @@ const menuItems = [
   { icon: LayoutDashboard, label: 'Panel Principal', path: '/dashboard' },
   { icon: Users, label: 'Pacientes', path: '/patients' },
   { icon: Calendar, label: 'Citas', path: '/appointments' },
-  { icon: ClipboardList, label: 'Servicios', path: '/services' },
 ];
 
 export default function Sidebar() {
