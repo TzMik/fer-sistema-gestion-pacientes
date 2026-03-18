@@ -20,7 +20,8 @@ export default function PatientForm({ patientId, onClose, onSuccess }) {
     email: '',
     phone: '',
     requires_invoice: false,
-    credit_balance: 0
+    credit_balance: 0,
+    custom_price: 700.00
   });
 
   useEffect(() => {
@@ -42,7 +43,8 @@ export default function PatientForm({ patientId, onClose, onSuccess }) {
             email: data.email || '',
             phone: data.phone || '',
             requires_invoice: data.requires_invoice || false,
-            credit_balance: data.credit_balance || 0
+            credit_balance: data.credit_balance || 0,
+            custom_price: data.custom_price || 700.00
           });
         }
         setLoading(false);
@@ -172,7 +174,7 @@ export default function PatientForm({ patientId, onClose, onSuccess }) {
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
                 <label className="block text-sm font-semibold text-slate-700 mb-1.5 flex items-center gap-2">
-                  <CreditCard size={16} className="text-slate-400" /> Balance Inicial
+                  <CreditCard size={16} className="text-slate-400" /> Saldo a favor
                 </label>
                 <div className="relative">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">$</span>
@@ -182,6 +184,23 @@ export default function PatientForm({ patientId, onClose, onSuccess }) {
                     name="credit_balance"
                     className="w-full pl-8 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                     value={formData.credit_balance}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="flex-1">
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5 flex items-center gap-2">
+                  <CreditCard size={16} className="text-slate-400" /> Precio por Cita (Personalizado)
+                </label>
+                <div className="relative">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                  <input 
+                    type="number"
+                    step="0.01"
+                    name="custom_price"
+                    className="w-full pl-8 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                    value={formData.custom_price}
                     onChange={handleChange}
                   />
                 </div>
